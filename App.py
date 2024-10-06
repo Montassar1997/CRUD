@@ -32,4 +32,18 @@ if submit_button:
 
 # Filtrage des utilisateurs
 st.subheader('Filtrer les utilisateurs')
-nom_filtre = st.text_input('Filtrer par
+nom_filtre = st.text_input('Filtrer par Nom')
+prenom_filtre = st.text_input('Filtrer par Prénom')
+
+# Appliquer les filtres
+if nom_filtre or prenom_filtre:
+    filtered_data = [item for item in data if 
+                     (nom_filtre.lower() in item['Nom'].lower() if nom_filtre else True) and
+                     (prenom_filtre.lower() in item['Prénom'].lower() if prenom_filtre else True)]
+else:
+    filtered_data = data
+
+# Afficher les données filtrées
+st.subheader('Liste des utilisateurs filtrés')
+for item in filtered_data:
+    st.write(f"ID: {item['ID']}, Nom: {item['Nom']}, Prénom: {item['Prénom']}, Carte d'identité: {item['Carte d\'identité']}")
