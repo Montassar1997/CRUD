@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.write(f'Application accessible à cette adresse : {public_url}')
+
 
 # Titre de l'application
 st.title('Application CRUD')
