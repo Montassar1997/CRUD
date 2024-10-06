@@ -2,7 +2,7 @@ import streamlit as st
 from pyngrok import ngrok
 
 # Ouverture du tunnel pour ngrok
-public_url = ngrok.connect()
+public_url = ngrok.connect(8501)
 st.write(f'Application accessible à cette adresse : {public_url}')
 
 # Titre de l'application
